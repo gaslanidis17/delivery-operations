@@ -1,0 +1,10 @@
+fastapi[standard]>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.9.0
+pydantic-settings>=2.5.0
+# 1.93.0 is source-only on Windows/Python 3.12 and attempts a Rust build.
+# Pin the latest verified pure-Python wheel so first-run setup stays one-click.
+litellm==1.80.17
+openpyxl>=3.1.0
+python-dotenv>=1.0.0
+pytest>=8.3.0

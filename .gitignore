@@ -1,0 +1,19 @@
+.env
+users.json
+logs/
+__pycache__/
+*.pyc
+backend/venv/
+backend/data/*.json
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+# synthetic data source MCP server: ship the code, build the venv locally
+mcp/venv/
+# Per-user generated Cursor MCP config (from .cursor/mcp.json.template via setup.sh)
+.cursor/mcp.json
+.env.*
+!.env.example
+*.log
+.idea/
+.vscode/

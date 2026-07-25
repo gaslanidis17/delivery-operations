@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-success: #10b981;
+}
+
+:root,
+[data-theme="dark"] {
+  --color-bg: #0f1117;
+  --color-surface: #1a1d29;
+  --color-surface-hover: #232736;
+  --color-border: #2a2e3d;
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  --color-tooltip-bg: #1e2130;
+  --color-tooltip-text: #e2e8f0;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-tooltip-bg: #ffffff;
+  --color-tooltip-text: #1e293b;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Recharts tooltip & legend text */
+.recharts-default-tooltip {
+  background-color: var(--color-tooltip-bg) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-tooltip-text) !important;
+}
+.recharts-tooltip-label {
+  color: var(--color-text) !important;
+}
+.recharts-tooltip-item {
+  color: var(--color-text) !important;
+}
+.recharts-legend-item-text {
+  color: var(--color-text-muted) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
