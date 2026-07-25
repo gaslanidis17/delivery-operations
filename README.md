@@ -302,8 +302,8 @@ press `Ctrl+C`, to stop the app.
 ### Clone the repository
 
 ```bash
-git clone https://github.com/gaslanidis17/delivery-operations.git
-cd delivery-operations
+git clone https://github.com/gaslanidis17/delivery-analytics.git
+cd delivery-analytics
 ```
 
 ### Backend setup
@@ -418,7 +418,7 @@ npm run lint
 ## Project Structure
 
 ```text
-delivery-operations/
+delivery-analytics/
 |
 |-- backend/
 |   |-- app/
