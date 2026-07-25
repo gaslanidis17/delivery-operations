@@ -1,0 +1,38 @@
+name: Apply sanitized Delivery Operations source
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-sanitized-source.yml
+
+permissions:
+  contents: write
+
+jobs:
+  replace-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the demo branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Replace the branch with the sanitized source
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="delivery-operations-sanitized.zip"
+          expected="cb10c4064d2324c40956e68e5d068bc28e10bbffdb1728c93e33deba37e45ae5"
+          echo "${expected}  ${archive}" | sha256sum --check -
+          cp "${archive}" /tmp/delivery-operations-sanitized.zip
+          git rm -r --ignore-unmatch .
+          unzip -oq /tmp/delivery-operations-sanitized.zip -d .
+          chmod +x launch_common.sh run.sh setup.sh start.command
+          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sanitize and rename Delivery Operations"
+          git push origin HEAD:main
